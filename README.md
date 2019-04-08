@@ -11,17 +11,21 @@ let cardNumber = '1234 5678 9012 3456';
 let json= {card:cardNumber,nome:"leandro mmelo"};
 
 ### output:
-{ card: '1234 5678 9012 3456', nome: 'leandro mmelo' } //before
 
-{ card: '1234 **** **** 3456', nome: 'leandro mmelo' } //after
+{ card: '1234 5678 9012 3456', nome: 'leandro mmelo' }
+
+{ card: '1234 **** **** 3456', nome: 'leandro mmelo' } 
 
 ##Card Number with diferent pattern on internal Json
 
 cardNumber = '1234 3456';
+
 json= {nome:"leandro mmelo", secret:{ card:"123456789" , id:1}};
 
 ### output:
+
 { nome: 'leandro mmelo', secret: { card: '123456789', id: 1 } }
+
 { nome: 'leandro mmelo', secret: { card: '12*****789', id: 1 } }
 
 ## Multiple card Numbers in Json
