@@ -33,15 +33,15 @@ json= {nome:"leandro mmelo", secret:{ card:"123456789" , id:1}};
 let cardNumber = '1234 3456 5678';
 
 let json= {nome:"leandro mmelo", 
-          secret: [ { card:"123456xxy" , id:1},{card:"123456xxx" , id:2 } ] };     
+          secret: [ { card:"123456123" , id:1},{card:"123456123" , id:2 } ] };     
 
 ### output:
 
 { nome: 'leandro mmelo',
-  secret: [ { card: '123456xxy', id: 1 }, { card: '123456xxx', id: 2 } ] }
+  secret: [ { card: '123456123', id: 1 }, { card: '123456123', id: 2 } ] }
 
 { nome: 'leandro mmelo',
-  secret: [ { card: '12****xxy', id: 1 }, { card: '12****xxx', id: 2 } ] }
+  secret: [ { card: '12****123', id: 1 }, { card: '12****123', id: 2 } ] }
 
 ## Any number that needs to be masking
 
