@@ -1,4 +1,4 @@
-# cardmask
+# maskkcard
 Mask for credit card number in JSON (PCI Rules)
 
 
