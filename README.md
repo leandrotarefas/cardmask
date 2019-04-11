@@ -1,6 +1,12 @@
 # maskkcard
 Mask for credit card number in JSON (PCI Rules)
 
+const cardNumber = '1234 3456 7890 1234';
+const jsonExample = {nome:"leandro melo", secret:{ card:"123456789" , id:1}};
+let jsonExampleMasked = cardMask.replaceCreditCardValueInJson(jsonExample, 'card');
+console.log(jsonExampleMasked)
+
+
 
 # Examples
 
