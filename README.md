@@ -4,53 +4,22 @@ Mask for credit card number in JSON (PCI Rules)
 
 # Examples
 
-## Card Number
+var mask = require("./app");
 
-let cardNumber = '1234 5678 9012 3456';
+const cardNumber = '1234 3456 7890 1234';
+const nome = "leandro m melo"
+const json= {nome: nome, secret:{ card:cardNumber , id:1}};
 
-let json= {card:cardNumber,nome:"leandro mmelo"};
+let maskedCard = mask.replaceCreditCardValueInJson(json, 'card');
+console.log(maskedCard.secret)
 
-### output:
+const maskedName = mask.replaceFieldValueForMask(json, 'nome' );
+console.log(maskedName)
 
-{ card: '1234 5678 9012 3456', nome: 'leandro mmelo' }
+## Output
 
-{ card: '1234 **** **** 3456', nome: 'leandro mmelo' } 
+Object {card: "123434******1234", id: 1}
 
-##Card Number with diferent pattern on internal Json
+Object {nome: "******* * ****", secret: Object}
 
-cardNumber = '1234 3456';
 
-json= {nome:"leandro mmelo", secret:{ card:"123456789" , id:1}};
-
-### output:
-
-{ nome: 'leandro mmelo', secret: { card: '123456789', id: 1 } }
-
-{ nome: 'leandro mmelo', secret: { card: '12*****789', id: 1 } }
-
-## Multiple card Numbers in Json
-
-let cardNumber = '1234 3456 5678';
-
-let json= {nome:"leandro mmelo", 
-          secret: [ { card:"123456123" , id:1},{card:"123456123" , id:2 } ] };     
-
-### output:
-
-{ nome: 'leandro mmelo',
-  secret: [ { card: '123456123', id: 1 }, { card: '123456123', id: 2 } ] }
-
-{ nome: 'leandro mmelo',
-  secret: [ { card: '12 **** 123', id: 1 }, { card: '12 **** 123', id: 2 } ] }
-
-## Any number that needs to be masking
-
-let cardNumber = '12345678';
-
-let json= {card:cardNumber,nome:"leandro mmelo"};
-
-### output:
-
-{ card: '12345678', nome: 'leandro mmelo' }
-
-{ card: '12****78', nome: 'leandro mmelo' }
